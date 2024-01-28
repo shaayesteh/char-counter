@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>character counter</title>
+    <style>
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-block: 32px;
+            font-size: 20px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <textarea id="text" oninput="count()"></textarea>
+    <p>length: <span id="charCount">-</span> characters</p>
+
+    <script>
+        function count() {
+            const text = document.querySelector('#text').value;
+            const countingText = text.replace(/[\u064F\u064B\u064D\u064C\u0652\u0654\u0651\u064E\u0650\u0653\u200C]/g, '');
+            const charCount = countingText.length;
+            document.querySelector('#charCount').textContent = charCount;
+        }
+    </script>
+
+</body>
+
+</html>
